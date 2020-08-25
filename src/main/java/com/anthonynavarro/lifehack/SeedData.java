@@ -72,43 +72,26 @@ public class SeedData
         u1.getRoles()
                 .add(new UserRoles(u1, r3));
         u1.getUseremails()
-                .add(new Useremail(u1, "sub-admin@email.local"));
-        u1.getUseremails()
-                .add(new Useremail(u1, "sub-admin@mymail.local"));
+                .add(new Useremail(u1, "first-email@email.local"));
 
         userService.save(u1);
 
         // data, user
-        User u2 = new User("leah & alyssa", "password", "admin-email-2@lambdaschool.local");
+        User u2 = new User("user2", "password", "admin-email-2@lambdaschool.local");
         u2.getRoles()
                 .add(new UserRoles(u2, r2));
         u2.getRoles()
                 .add(new UserRoles(u2, r3));
-        u2.getUseremails()
-                .add(new Useremail(u2, "subemail-1@mymail.local"));
-        u2.getUseremails()
-                .add(new Useremail(u2, "subemail-2@mymail.local"));
-        u2.getUseremails()
-                .add(new Useremail(u2, "subemail-3@email.local"));
         userService.save(u2);
 
         // user
-        User u3 = new User("benjamin", "password", "admin-email-3@lambdaschool.local");
+        User u3 = new User("user3", "password", "admin-email-3@lambdaschool.local");
         u3.getRoles()
                 .add(new UserRoles(u3, r2));
         u3.getUseremails()
                 .add(new Useremail(u3, "admin-subemail-3@email.local"));
         userService.save(u3);
 
-        User u4 = new User("peep", "password", "admin-subemail-4@school.lambda");
-        u4.getRoles()
-                .add(new UserRoles(u4, r2));
-        userService.save(u4);
-
-        User u5 = new User("anthony", "password", "admin-subemail-5@school.lambda");
-        u5.getRoles()
-                .add(new UserRoles(u5, r2));
-        userService.save(u5);
 
         if (false)
         {
