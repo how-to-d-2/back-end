@@ -1,6 +1,7 @@
 package com.anthonynavarro.lifehack.repository;
-
+import com.anthonynavarro.lifehack.views.UserNameCountHowtos;
 import com.anthonynavarro.lifehack.models.User;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -11,12 +12,14 @@ import java.util.List;
 public interface UserRepository
         extends CrudRepository<User, Long>
 {
-    /**
-     * Find a user based off over username
-     *
-     * @param username the name (String) of user you seek
-     * @return the first user object with the name you seek
-     */
+
+    @Query(value = "SELECT u.username as usernamerpt, count(h.howtooid) as counttodos " +
+            "FROM users u LEFT JOIN howtos h " +
+            "ON u.userid = h.userid " +
+            "WHERE NOT h.completed GROUP BY u.username " +
+            "ORDER BY u.username ", nativeQuery = true)
+    List<UserNameCountHowtos> getCountUserTodos();
+
     User findByUsername(String username);
 
     /**

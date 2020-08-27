@@ -17,6 +17,7 @@ import java.util.Set;
  * The entity allowing interaction with the roles table.
  */
 @Entity
+@JsonIgnoreProperties(value = "roles")
 @Table(name = "roles")
 public class Role
         extends Auditable
@@ -31,6 +32,7 @@ public class Role
     /**
      * The name (String) of the role. Cannot be null and must be unique.
      */
+    @JsonIgnoreProperties(value = "roles")
     @Column(nullable = false,
             unique = true)
     private String name;
@@ -40,10 +42,11 @@ public class Role
      * Part of the join relationship between user and role
      * connects roles to the user role combination
      */
+
     @OneToMany(mappedBy = "role",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JsonIgnoreProperties(value = "role", allowSetters = true)
+    @JsonIgnoreProperties(value = "roles")
     private Set<UserRoles> users = new HashSet<>();
 
     /**

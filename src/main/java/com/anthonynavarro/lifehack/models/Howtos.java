@@ -12,20 +12,22 @@ public class Howtos
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long howtoid;
 
-    private String description;
+    public String description;
 
     @ManyToOne
-    @JoinColumn(name = "howtos",
+    @JoinColumn(name = "userid",
             nullable = false)
-    @JsonIgnoreProperties(value = "howtos",
+    @JsonIgnoreProperties(value = "roles",
             allowSetters = true)
 
     private User user;
 
-    public Howtos() {
+    public Howtos()
+    {
     }
 
-    public Howtos(User user, String description)
+    public Howtos(User user,
+                  String description)
     {
         this.description = description;
         this.user = user;
@@ -51,11 +53,16 @@ public class Howtos
         this.description = description;
     }
 
-    public User getUser() {
+
+    public User getUser()
+    {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(User user)
+    {
         this.user = user;
     }
+
+
 }

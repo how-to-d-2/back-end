@@ -3,7 +3,7 @@ package com.anthonynavarro.lifehack.services;
 import com.anthonynavarro.lifehack.models.Role;
 import com.anthonynavarro.lifehack.models.User;
 import com.anthonynavarro.lifehack.models.UserRoles;
-import com.anthonynavarro.lifehack.models.Useremail;
+//import com.anthonynavarro.lifehack.models.Useremail;
 import com.anthonynavarro.lifehack.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -108,15 +108,15 @@ public class UserServiceImpl
             newUser.getRoles()
                     .add(new UserRoles(newUser, addRole));
         }
-
-        newUser.getUseremails()
-                .clear();
-        for (Useremail ue : user.getUseremails())
-        {
-            newUser.getUseremails()
-                    .add(new Useremail(newUser,
-                            ue.getUseremail()));
-        }
+//
+//        newUser.getUseremails()
+//                .clear();
+//        for (Useremail ue : user.getUseremails())
+//        {
+//            newUser.getUseremails()
+//                    .add(new Useremail(newUser,
+//                            ue.getUseremail()));
+//        }
 
         return userrepos.save(newUser);
     }
@@ -160,19 +160,19 @@ public class UserServiceImpl
                         .add(new UserRoles(currentUser, addRole));
             }
         }
-
-        if (user.getUseremails()
-                .size() > 0)
-        {
-            currentUser.getUseremails()
-                    .clear();
-            for (Useremail ue : user.getUseremails())
-            {
-                currentUser.getUseremails()
-                        .add(new Useremail(currentUser,
-                                ue.getUseremail()));
-            }
-        }
+//
+//        if (user.getUseremails()
+//                .size() > 0)
+//        {
+//            currentUser.getUseremails()
+//                    .clear();
+//            for (Useremail ue : user.getUseremails())
+//            {
+//                currentUser.getUseremails()
+//                        .add(new Useremail(currentUser,
+//                                ue.getUseremail()));
+//            }
+//        }
 
         return userrepos.save(currentUser);
     }

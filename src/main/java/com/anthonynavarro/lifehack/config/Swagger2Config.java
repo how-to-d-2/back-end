@@ -32,7 +32,7 @@ public class Swagger2Config
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.lambdaschool.lifehack"))
+                        .basePackage("com.anthonynavarro.lifehack"))
                 .paths(PathSelectors.regex("/.*"))
                 .build()
                 .apiInfo(apiEndPointsInfo());
@@ -45,7 +45,7 @@ public class Swagger2Config
      */
     private ApiInfo apiEndPointsInfo()
     {
-        return new ApiInfoBuilder().title("Bookstore Model")
+        return new ApiInfoBuilder().title("howto Model")
                 .description("Java Build Week")
                 .contact(new Contact("Anthony Navarro",
                         "http://www.lambdaschool.com",

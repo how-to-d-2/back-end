@@ -23,7 +23,6 @@ import java.util.*;
 public class User
         extends Auditable
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userid;
@@ -41,6 +40,7 @@ public class User
 
     @Column(nullable = false,
             unique = true)
+
     @Email
     private String primaryemail;
 
@@ -48,14 +48,8 @@ public class User
     @OneToMany(mappedBy = "user",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JsonIgnoreProperties(value = "user", allowSetters = true)
-    private List<Useremail> useremails = new ArrayList<>();
-
-
-    @OneToMany(mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    @JsonIgnoreProperties(value = "user", allowSetters = true)
+    @JsonIgnoreProperties(value = "user",
+            allowSetters = true)
     private List<UserRoles> roles = new ArrayList<>();
 
 
@@ -65,7 +59,6 @@ public class User
     @JsonIgnoreProperties(value = "user",
             allowSetters = true)
     private List<Howtos> howtos = new ArrayList<>();
-
 
     public User()
     {
@@ -135,29 +128,23 @@ public class User
         this.password = passwordEncoder.encode(password);
     }
 
-    public List<Useremail> getUseremails()
-    {
-        return useremails;
-    }
-
 
     public List<UserRoles> getRoles()
     {
         return roles;
     }
 
-
     public void setRoles(List<UserRoles> roles)
     {
         this.roles = roles;
     }
 
-
-    public List<Howtos> getHowtos() {
+    public List<Howtos> getHowtos()
+    {
         return howtos;
     }
-
-    public void setHowtos(List<Howtos> howtos) {
+    public void setHowtos(List<Howtos> howtos)
+    {
         this.howtos = howtos;
     }
 
