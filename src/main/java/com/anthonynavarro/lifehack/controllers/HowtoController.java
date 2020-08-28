@@ -1,6 +1,7 @@
 package com.anthonynavarro.lifehack.controllers;
 
 import com.anthonynavarro.lifehack.models.Howtos;
+import com.anthonynavarro.lifehack.models.UserMinimum;
 import com.anthonynavarro.lifehack.services.HowtoService;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -18,6 +22,12 @@ public class HowtoController
 {
     @Autowired
     HowtoService howtoService;
+
+    @PostMapping(value = "/howto/{howtoid}",
+            consumes = {"application/json"},
+            produces = {"application/json"})
+
+
 
     @GetMapping(value = "/howto",
             produces = {"application/json"})

@@ -83,6 +83,18 @@
         </dependency>
         <!-- Swagger Dependencies End -->
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>3.3.0</version>
+        </dependency>
 
         <!-- Security Dependencies Start -->
         <dependency>

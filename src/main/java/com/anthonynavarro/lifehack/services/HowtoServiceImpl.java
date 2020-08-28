@@ -56,29 +56,4 @@ public class HowtoServiceImpl implements HowtoService
         return howtorepos.save(addHowto);
     }
 
-//@Service(value = "howtosService")
-//public class HowtoServiceImpl implements HowtoService
-//{
-//
-//    @Autowired
-//    HowtoRepository howtorepos;
-//
-//    @Autowired
-//    UserRepository userrepo;
-//
-//    @Override
-//    public Howtos addHowto(Howtos howtos)
-//    {
-//        return howtorepos.save(howtos);
-//    }
-//
-//    @Override
-//    public void markComplete(long howtoid)
-//    {
-//        Howtos howtos = howtorepos.findById(howtoid)
-//                .orElseThrow(() -> new EntityNotFoundException(String.format("Todo %s not found.", howtoid)));
-//
-//        howtos.setCompleted(true);
-//    }
-
 }
