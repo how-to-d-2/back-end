@@ -52,21 +52,21 @@ public class ResourceServerConfig
                 .permitAll()
                 .antMatchers(String.valueOf(HttpMethod.POST),
                         "/users/**")
-                .hasAnyRole("ADMIN")
+                .hasAnyRole("ADMIN", "DATA", "USER")
                 .antMatchers(String.valueOf(HttpMethod.GET),
-                        "/books/books")
-                .hasAnyRole("ADMIN", "DATA")
+                        "/howtos/howto")
+                .hasAnyRole("ADMIN", "DATA", "USER")
                 .antMatchers(String.valueOf(HttpMethod.GET),
-                        "/books/book/{bookId}")
-                .hasAnyRole("ADMIN", "DATA")
+                        "/howtos/howto/{howtoid}")
+                .hasAnyRole("ADMIN", "DATA", "USER")
                 .antMatchers(String.valueOf(HttpMethod.POST),
-                        "/books/book")
-                .hasAnyRole("ADMIN")
+                        "/howtos/howto")
+                .hasAnyRole("ADMIN", "DATA", "USER")
                 .antMatchers(String.valueOf(HttpMethod.PUT),
-                        "books/book/{bookId}")
-                .hasAnyRole("ADMIN")
+                        "howtos/howto/{howtoid}")
+                .hasAnyRole("ADMIN", "DATA", "USER")
                 .antMatchers(String.valueOf(HttpMethod.DELETE),
-                        "/books/book/{bookId}")
+                        "howtos/howto/{howtoid}")
                 .permitAll()
                 .antMatchers("/users/**",
                         "/useremails/**",
@@ -74,7 +74,7 @@ public class ResourceServerConfig
                         "/logout")
                 .authenticated()
                 .antMatchers("/roles/**")
-                .hasAnyRole("ADMIN")
+                .hasAnyRole("ADMIN", "DATA", "USER")
                 .and()
                 .exceptionHandling()
                 .accessDeniedHandler(new OAuth2AccessDeniedHandler());

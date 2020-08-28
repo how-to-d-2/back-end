@@ -106,6 +106,7 @@ public class UserRoles
     public void setRole(Role role)
     {
         this.role = role;
+
     }
 
     @Override
